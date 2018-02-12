@@ -1,0 +1,116 @@
+{
+  "Multilingual": {
+    "id": "Multilingual",
+    "type": "object",
+    "properties": {
+      "lang": {
+        "description": "Language tag defined by RFC5646.",
+        "minLength": 2,
+        "maxLength": 35,
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  },
+  "MultilingualString": {
+    "id": "MultilingualString",
+    "type": "object",
+    "properties": {
+      "lang": {
+        "description": "Language tag defined by RFC5646.",
+        "minLength": 2,
+        "maxLength": 35,
+        "type": "string"
+      },
+      "s": {
+        "description": "String written in the language specified by `lang`",
+        "pattern": "[^\\n]+",
+        "minLength": 0,
+        "maxLength": 1024,
+        "type": "string"
+      }
+    },
+    "required": [
+      "s"
+    ],
+    "additionalProperties": false
+  },
+  "MultilingualText": {
+    "id": "MultilingualText",
+    "type": "object",
+    "properties": {
+      "lang": {
+        "description": "Language tag defined by RFC5646.",
+        "minLength": 2,
+        "maxLength": 35,
+        "type": "string"
+      },
+      "t": {
+        "description": "Text written in the language specified by `lang`",
+        "minLength": 0,
+        "maxLength": 65536,
+        "type": "string"
+      }
+    },
+    "required": [
+      "t"
+    ],
+    "additionalProperties": false
+  },
+  "MetaData": {
+    "id": "MetaData",
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "Display name for the content",
+        "$ref": "MultilingualString"
+      },
+      "owner": {
+        "description": "Owner's nickname.",
+        "$ref": "MultilingualString"
+      },
+      "path": {
+        "description": "Relative path to the content.",
+        "default": "content.bin",
+        "$ref": "MultilingualString"
+      },
+      "contentType": {
+        "description": "Content type for the content",
+        "default": "application/octet-stream",
+        "$ref": "MultilingualString"
+      },
+      "tags": {
+        "description": "Tag information that helps searchs",
+        "minItems": 1,
+        "maxItems": 50,
+        "type": "array",
+        "items": {
+          "$ref": "MultilingualString"
+        }
+      },
+      "description": {
+        "description": "Short description.",
+        "$ref": "MultilingualText"
+      },
+      "encrypted": {
+        "description": "True if the content is encrypted by Uploader.\nThis will be set by Storm Uploader.",
+        "type": "boolean",
+        "default": false
+      },
+      "created": {
+        "description": "Creation time.\nThis is just a hint giving to Storm Scanner\nStorm Scanner may determine the last update date\nfrom both this and Monacoin blockchain.",
+        "format": "date-time",
+        "type": "string"
+      },
+      "updated": {
+        "description": "Last update time.\nThis is just a hint giving to Storm Scanner\nStorm Scanner may determine the last update date\nfrom both this and Monacoin blockchain.",
+        "format": "date-time",
+        "type": "string"
+      }
+    },
+    "required": [
+      "path"
+    ],
+    "additionalProperties": false
+  }
+}
