@@ -1,0 +1,31 @@
+{
+  "name": "@stor-m/metadata",
+  "version": "0.0.1",
+  "description": "Metadata access library for Stor-m.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stor-m/metadata.git"
+  },
+  "keywords": [
+    "Stor-m",
+    "Monacoin",
+    "Monaparty"
+  ],
+  "author": "cryptcoin.junkey@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stor-m/metadata/issues"
+  },
+  "homepage": "https://github.com/stor-m/metadata#readme",
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.1"
+  }
+}
